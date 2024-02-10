@@ -7,15 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-string connectionString = builder.Configuration.GetConnectionString("UserConnection");
+var connectionString = builder.Configuration.GetConnectionString("UserConnection");
 builder.Services.AddDbContext<UserDbContext>(
     opts =>
-    {
         opts.UseMySql(
             connectionString, 
             ServerVersion.AutoDetect(connectionString)
-            );
-    });
+            )
+    );
 
 builder.Services
     .AddIdentity<UserModel, IdentityRole>()

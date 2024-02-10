@@ -8,7 +8,7 @@ namespace UserManagement.Apps.Users.Controllers;
 public class UserController : ControllerBase
 {
     [HttpPost]
-    public IActionResult CreateUser (CreateUserDTO userData)
+    public IActionResult CreateUser (CreateUserDto userData)
     {
         throw new NotImplementedException();
     }
