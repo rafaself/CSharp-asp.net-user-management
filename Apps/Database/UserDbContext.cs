@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using UserManagement.Apps.Users.Models;
+using UserManagement.Apps.Users;
 
 namespace UserManagement.Apps.Database;
 

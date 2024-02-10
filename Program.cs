@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UserManagement.Apps.Database;
-using UserManagement.Apps.Users.Models;
+using UserManagement.Apps.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +24,9 @@ builder.Services
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<UserServices> ();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

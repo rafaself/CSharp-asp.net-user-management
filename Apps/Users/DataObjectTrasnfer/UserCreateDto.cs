@@ -2,12 +2,12 @@
 
 namespace UserManagement.Apps.Users.Data;
 
-public class CreateUserDto
+public class UserCreateDto
 {
     [Required]
     public string Username { get; set; }
     [Required]
-    public string BirthDate { get; set; }
+    public DateTime BirthDate { get; set; }
     [Required]
     [DataType(DataType.Password)]
     public string Password { get; set; }
