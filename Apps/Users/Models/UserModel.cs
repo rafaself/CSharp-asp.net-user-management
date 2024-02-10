@@ -1,6 +1,10 @@
-﻿namespace UserManagement.Apps.Users.Models;
+﻿using Microsoft.AspNetCore.Identity;
 
-public class UserModel
+namespace UserManagement.Apps.Users.Models;
+
+public class UserModel : IdentityUser
 {
+    public DateTime BirthDate { get; set; }
+    public UserModel() : base(){}
 
 }

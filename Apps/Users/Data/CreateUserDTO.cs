@@ -2,7 +2,7 @@
 
 namespace UserManagement.Apps.Users.Data;
 
-public class CreateUserDTO
+public class CreateUserDto
 {
     [Required]
     public string Username { get; set; }

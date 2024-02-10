@@ -1,5 +1,5 @@
 ﻿namespace UserManagement.Apps.Users.Data;
 
-public class UpdateUserDTO
+public class UpdateUserDto
 {
 }
