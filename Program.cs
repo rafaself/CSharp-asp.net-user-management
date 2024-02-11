@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using UserManagement.Apps.Authentication;
 using UserManagement.Apps.Database;
 using UserManagement.Apps.Users;
 
@@ -11,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("UserConnection
 builder.Services.AddDbContext<UserDbContext>(
     opts =>
         opts.UseMySql(
-            connectionString, 
+            connectionString,
             ServerVersion.AutoDetect(connectionString)
             )
     );
@@ -25,7 +26,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<UserServices> ();
+builder.Services.AddScoped<UserServices>();
+builder.Services.AddScoped<AuthorizationServices>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
