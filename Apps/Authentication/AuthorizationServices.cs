@@ -13,16 +13,19 @@ namespace UserManagement.Apps.Authentication;
 public class AuthorizationServices
 {
 
+    IConfiguration _configuration;
     IMapper _mapper;
     SignInManager<UserModel> _signInManager;
 
     public AuthorizationServices(
         SignInManager<UserModel> signInManager,
-        IMapper mapper
+        IMapper mapper,
+        IConfiguration configuration
     )
     {
         _mapper = mapper;
         _signInManager = signInManager;
+        _configuration = configuration;
     }
 
     public async Task Login(LoginDto loginData)
@@ -49,7 +52,7 @@ public class AuthorizationServices
             new Claim(ClaimTypes.DateOfBirth, userData.BirthDate.ToString())
         ];
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("DASdsdasSADSADASDASDA325314565!!DADADADSADA"));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SymmetricSecurityKey"]));
         var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var token = new JwtSecurityToken(
             expires: DateTime.Now.AddMinutes(10),
